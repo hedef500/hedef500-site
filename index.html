@@ -228,9 +228,62 @@
 
 <section id="iletisim" class="bolum bolum-koyu">
   <div class="kap iletisim">
-    <h2>Soru, tanıtım ya da teklif için yazın</h2>
-    <p>Kısa formu doldurun, e-postayla dönüş yapılır. Okullar için tanıtım ve sınıf sayısına göre teklif istenebilir.</p>
-    <a class="dugme" href="https://docs.google.com/forms/d/e/1FAIpQLSf9eOc7hx20T4GnQUkX1l2Ezn8gItzwFkcSatChGnMauwk-ew/viewform">İletişim formunu aç</a>
+    <div class="iletisim-giris">
+      <h2>Soru, tanıtım ya da teklif için yazın</h2>
+      <p>Formu doldurun, e-postayla dönüş yapılır. Okullar programı tanıtım lisansıyla 30 gün inceleyebilir; sınıf sayısına göre teklif de istenebilir.</p>
+      <p class="iletisim-not">Lütfen bu forma öğrencilere ait bilgi (ad, numara, not) yazmayın.</p>
+      <p class="iletisim-not">Mesajınız Google Formlar aracılığıyla iletilir; yalnızca bu talebe yanıt vermek için kullanılır.</p>
+    </div>
+    <!-- Gönderim, sitenin Google Form'una gider (yanıt tablosu + e-posta bildirimi); sayfa değişmez -->
+    <form class="form" id="iletisim-formu" method="post" target="form-cevap"
+          action="https://docs.google.com/forms/d/e/1FAIpQLSf9eOc7hx20T4GnQUkX1l2Ezn8gItzwFkcSatChGnMauwk-ew/formResponse">
+      <div class="alan">
+        <label for="f-ad">Adınız soyadınız</label>
+        <input id="f-ad" name="entry.551762651" autocomplete="name" required maxlength="100">
+      </div>
+      <div class="alan">
+        <label for="f-kurum">Okul / kurum <span>isteğe bağlı</span></label>
+        <input id="f-kurum" name="entry.650641232" autocomplete="organization" maxlength="150">
+      </div>
+      <div class="alan">
+        <label for="f-eposta">E-posta adresiniz</label>
+        <input id="f-eposta" name="entry.1679066797" type="email" autocomplete="email" required maxlength="150">
+      </div>
+      <div class="alan">
+        <label for="f-tel">Telefon <span>isteğe bağlı</span></label>
+        <input id="f-tel" name="entry.822053943" type="tel" autocomplete="tel" inputmode="tel" pattern="[0-9 +()\-]{10,20}"
+               title="10–20 karakter; yalnızca rakam, boşluk, + ( ) -" placeholder="05xx xxx xx xx">
+      </div>
+      <div class="alan alan-genis">
+        <label for="f-konu">Konu</label>
+        <select id="f-konu" name="entry.1726994934" required>
+          <option value="" disabled selected>Seçin</option>
+          <option>Program hakkında bilgi almak istiyorum</option>
+          <option>Okulumuz için kurum tanıtımı istiyoruz</option>
+          <option>Fiyat teklifi istiyorum</option>
+          <option>Lisans / teknik destek</option>
+          <option>Diğer</option>
+        </select>
+      </div>
+      <div class="alan alan-genis">
+        <label for="f-sayi">Yaklaşık öğrenci sayısı <span>isteğe bağlı</span></label>
+        <input id="f-sayi" name="entry.924090934" inputmode="numeric" maxlength="20">
+      </div>
+      <div class="alan alan-genis">
+        <label for="f-mesaj">Mesajınız</label>
+        <textarea id="f-mesaj" name="entry.1477558571" rows="5" required maxlength="3000"></textarea>
+      </div>
+      <label class="onay alan-genis">
+        <input type="checkbox" name="entry.2095564187" required
+               value="Yazdığım bilgilerin yalnızca bu talebe yanıt vermek için kullanılmasını kabul ediyorum.">
+        <span>Yazdığım bilgilerin yalnızca bu talebe yanıt vermek için kullanılmasını kabul ediyorum.</span>
+      </label>
+      <div class="gonder alan-genis">
+        <button class="dugme" type="submit">Mesajı gönder</button>
+        <p class="form-durum" id="form-durum" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+    <iframe name="form-cevap" id="form-cevap" title="Form gönderimi" hidden></iframe>
   </div>
 </section>
 
@@ -243,5 +296,25 @@
     <span>Bu sitede çerez ve ziyaretçi takibi yoktur.</span>
   </div>
 </footer>
+<script>
+(function () {
+  var form = document.getElementById("iletisim-formu"), cerceve = document.getElementById("form-cevap"),
+      durum = document.getElementById("form-durum"), dugme = form.querySelector("button"), bekliyor = false, zaman;
+  form.addEventListener("submit", function () {
+    bekliyor = true; dugme.disabled = true; durum.className = "form-durum"; durum.textContent = "Gönderiliyor…";
+    zaman = setTimeout(function () {
+      if (!bekliyor) return;
+      bekliyor = false; dugme.disabled = false; durum.className = "form-durum hata";
+      durum.textContent = "Mesaj gönderilemedi. İnternet bağlantınızı denetleyip yeniden deneyin.";
+    }, 20000);
+  });
+  cerceve.addEventListener("load", function () {
+    if (!bekliyor) return;
+    bekliyor = false; clearTimeout(zaman); dugme.disabled = false; form.reset();
+    durum.className = "form-durum tamam";
+    durum.textContent = "Mesajınız gönderildi, teşekkürler. En kısa sürede e-posta adresinize dönüş yapılacak.";
+  });
+})();
+</script>
 </body>
 </html>

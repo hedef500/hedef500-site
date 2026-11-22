@@ -174,9 +174,30 @@ summary::after { content: ""; position: absolute; right: 0.4rem; top: 50%; width
 details[open] summary::after { transform: translateY(-30%) rotate(-135deg); }
 details p { margin: 0 0 1.2rem; color: #33405A; }
 
-/* iletişim */
-.iletisim { text-align: center; max-width: 40rem; }
-.iletisim p { color: #B9C7D9; font-size: 1.1rem; margin-bottom: 1.8rem; }
+/* iletişim: sitenin içindeki form (gönderim Google Form'a) */
+.iletisim { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+.iletisim-giris p { color: #B9C7D9; font-size: 1.1rem; }
+.iletisim-giris .iletisim-not { font-size: 0.95rem; color: #8FA3BD; border-left: 3px solid var(--turuncu); padding-left: 0.8rem; }
+.form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem 1.2rem; background: var(--gece-2);
+  border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: clamp(1.3rem, 3vw, 2rem); }
+.alan { display: grid; gap: 0.4rem; }
+.alan-genis { grid-column: 1 / -1; }
+.alan label { font: 600 0.98rem/1.2 var(--baslik); color: #fff; }
+.alan label span { font: 400 0.85rem var(--govde); color: #8FA3BD; margin-left: 0.3rem; }
+.form input:not([type=checkbox]), .form select, .form textarea {
+  width: 100%; font: inherit; color: var(--metin); background: #fff; border: 2px solid transparent; border-radius: 8px;
+  padding: 0.65rem 0.8rem; }
+.form textarea { resize: vertical; min-height: 7rem; }
+.form input:focus, .form select:focus, .form textarea:focus { outline: none; border-color: var(--nane); }
+.form input:user-invalid, .form textarea:user-invalid, .form select:user-invalid { border-color: #F08A7E; }
+.onay { display: flex; gap: 0.7rem; align-items: flex-start; color: #C3D0E0; font-size: 0.97rem; cursor: pointer; }
+.onay input { width: 1.2rem; height: 1.2rem; margin-top: 0.2rem; accent-color: var(--nane); flex: none; }
+.gonder { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
+.gonder .dugme { border: 0; cursor: pointer; }
+.gonder .dugme:disabled { opacity: 0.6; cursor: wait; }
+.form-durum { margin: 0; color: #C3D0E0; }
+.form-durum.tamam { color: var(--nane); font-weight: 600; }
+.form-durum.hata { color: #F8B4AB; font-weight: 600; }
 
 /* alt bilgi */
 .alt { background: #0A1730; color: #7D90AA; font-size: 0.92rem; padding: 2rem 0; }
@@ -185,14 +206,14 @@ details p { margin: 0 0 1.2rem; color: #33405A; }
 
 /* dar ekran */
 @media (max-width: 900px) {
-  .giris-ic, .adim, .gizlilik, .indir { grid-template-columns: 1fr; }
+  .giris-ic, .adim, .gizlilik, .indir, .iletisim { grid-template-columns: 1fr; }
   .giris-gorsel { transform: none; }
   .adim:nth-child(even) .adim-metin { order: 0; }
   .ozellikler { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 640px) {
   .ust nav a:not(.dugme) { display: none; }
-  .ozellikler, .ucretsiz { grid-template-columns: 1fr; }
+  .ozellikler, .ucretsiz, .form { grid-template-columns: 1fr; }
   .fiyat-tablosu th, .fiyat-tablosu td { padding: 0.8rem 0.9rem; }
   .fiyat-tablosu td:nth-child(2) { display: none; }
   .fiyat-tablosu thead th:nth-child(2) { display: none; }
