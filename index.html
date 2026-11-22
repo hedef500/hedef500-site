@@ -52,8 +52,53 @@
       </div>
       <p class="giris-not">Windows 10 ve 11 · 15 gün, 30 öğrenciye kadar ücretsiz · Yönetici izni gerekmez</p>
     </div>
-    <figure class="pencere giris-gorsel">
-      <img src="gorseller/ana_sayfa.webp" width="1600" height="826" alt="Hedef500 Ana Sayfa: solda öğrenci listesi ve son netleri, sağda başlangıç adımları ve bu haftanın durumu">
+    <!-- Canlı ürün: kodla çizilmiş program penceresi; site.js sahneleri sırayla oynatır (data-adim 0–4) -->
+    <figure class="canli giris-gorsel" id="canli" data-adim="4"
+            aria-label="Canlandırma: deneme PDF'i aktarılıyor, öğrenci netleri doluyor, haftalık program hazırlanıyor, rapor veliye gönderilmeye hazır">
+      <div class="canli-pencere" aria-hidden="true">
+        <div class="canli-ust">
+          <svg class="canli-isaret" viewBox="-110 -110 220 220"><circle r="92" fill="none" stroke="#fff" stroke-width="20"/><circle r="52" fill="none" stroke="#fff" stroke-width="20"/><line x1="0" y1="0" x2="84" y2="-84" stroke="#5EE6D0" stroke-width="16" stroke-linecap="round"/><circle r="18" fill="#F39C12"/></svg>
+          <b>Hedef500</b>
+          <span class="canli-baslik"><span data-baslik="1">PDF'den Deneme Aktar</span><span data-baslik="2">Öğrenciler • Son net</span><span data-baslik="3">Çalışma Programı</span><span data-baslik="4">Veliye Gönder</span></span>
+        </div>
+        <div class="canli-govde">
+          <div class="canli-liste">
+            <div class="canli-liste-bas"><span>Öğrenci</span><span>Son net</span></div>
+            <div class="satir" style="--i:0"><span>LGS Öğrencisi 7</span><b class="artis">83,7 ▲</b></div>
+            <div class="satir" style="--i:1"><span>LGS Öğrencisi 12</span><b class="artis">79,3 ▲</b></div>
+            <div class="satir" style="--i:2"><span>LGS Öğrencisi 3</span><b>76,0</b></div>
+            <div class="satir dusus" style="--i:3"><span>LGS Öğrencisi 18</span><b>64,3 ▼</b></div>
+            <div class="satir" style="--i:4"><span>LGS Öğrencisi 21</span><b class="artis">70,3 ▲</b></div>
+            <div class="satir" style="--i:5"><span>LGS Öğrencisi 5</span><b class="artis">68,0 ▲</b></div>
+          </div>
+          <div class="canli-sahne">
+            <div class="sahne-pdf">
+              <div class="pdf-kart"><span class="pdf-simge">PDF</span><span><b>Deneme 5 – kurum listesi.pdf</b><small>24 öğrenci • 6 ders</small></span></div>
+              <div class="pdf-cubuk"><i></i></div>
+              <small class="pdf-yazi">Netler ve yanlış yapılan kazanımlar işleniyor…</small>
+            </div>
+            <div class="sahne-eksik">
+              <b class="eksik-baslik">LGS Öğrencisi 18 • öncelikli konular</b>
+              <div class="eksik" style="--i:0;--w:92%"><span>Matematik • Çarpanlar ve Katlar</span><small>son 3 denemede 4 hata</small><i></i></div>
+              <div class="eksik" style="--i:1;--w:70%"><span>Türkçe • Sözcükte Anlam</span><small>son 3 denemede 3 hata</small><i></i></div>
+              <div class="eksik" style="--i:2;--w:62%"><span>Fen • Basit Makineler</span><small>son 3 denemede 3 hata</small><i></i></div>
+              <div class="eksik" style="--i:3;--w:38%"><span>İnkılap • Bir Kahraman Doğuyor</span><small>son 3 denemede 2 hata</small><i></i></div>
+            </div>
+            <div class="sahne-program">
+              <div class="gun"><b>Pzt</b><span class="kart tur" style="--i:0">Türkçe<small>Sözcükte Anlam</small></span><span class="kart mat" style="--i:5">Mat.<small>Çarpanlar ve Katlar</small></span></div>
+              <div class="gun"><b>Sal</b><span class="kart fen" style="--i:1">Fen<small>Mevsimler</small></span><span class="kart tur" style="--i:6">Paragraf<small>20 soru</small></span></div>
+              <div class="gun"><b>Çar</b><span class="kart mat" style="--i:2">Mat.<small>Kazanım sorusu</small></span><span class="kart ink" style="--i:7">İnkılap<small>Kahraman Doğuyor</small></span></div>
+              <div class="gun"><b>Per</b><span class="kart tur" style="--i:3">Türkçe<small>Yazım Kuralları</small></span><span class="kart fen" style="--i:8">Fen<small>Yeni nesil</small></span></div>
+              <div class="gun"><b>Cum</b><span class="kart ing" style="--i:4">İng.<small>Friendship</small></span><span class="kart mat" style="--i:9">Mat.<small>Üslü İfadeler</small></span></div>
+              <div class="rutin" style="--i:10"><b>Her gün</b><span>Paragraf 20 soru</span><span>Kitap 30 dk</span><span>Kelime 15</span></div>
+            </div>
+            <div class="canli-bildirim"><span class="tik">✓</span><span><b>Gelişim raporu ve program hazır</b><small>A4 + telefon • WhatsApp'ta veliye gönderilmeye hazır</small></span></div>
+          </div>
+        </div>
+      </div>
+      <ol class="canli-adimlar" aria-hidden="true">
+        <li data-n="1">Aktar</li><li data-n="2">Eksikler</li><li data-n="3">Program</li><li data-n="4">Veliye</li>
+      </ol>
     </figure>
   </div>
 
@@ -80,44 +125,53 @@
     <h2>Bir haftanın akışı</h2>
     <p class="bolum-giris">Deneme günü başlayan dört adım. Her adım programda tek bir düğmeyle yapılır; Ana Sayfa sıradaki adımı gösterir.</p>
 
+    <div class="akis">
     <ol class="adimlar">
-      <li class="adim">
+      <li class="adim" data-adim="1">
         <div class="adim-metin">
           <span class="adim-no" aria-hidden="true">1</span>
           <h3>Deneme sonucunu aktarın</h3>
           <p>Yayınevinin karnesini ya da kurum listesini PDF olarak seçin. Bütün sınıfın netleri, ders ders doğru-yanlışları ve yanlış yapılan kazanımlar tek seferde işlenir. Sistemde olmayan öğrenciler eklenir; sınıfı yazılmamış olanlar ayrı tutulur.</p>
           <p class="adim-ayrinti">Öğrenci listesi Excel'den de alınabilir; program boş bir şablon hazırlar.</p>
         </div>
-        <figure class="pencere"><img src="gorseller/konu.webp" width="1600" height="826" loading="lazy" alt="Konu takibi: her dersin konuları, toplam hata sayıları ve konu durumları"></figure>
+        <figure class="pencere adim-gorsel"><img src="gorseller/konu.webp" width="1600" height="826" loading="lazy" alt="Konu takibi: her dersin konuları, toplam hata sayıları ve konu durumları"></figure>
       </li>
-      <li class="adim">
+      <li class="adim" data-adim="2">
         <div class="adim-metin">
           <span class="adim-no" aria-hidden="true">2</span>
           <h3>Eksikleri görün</h3>
           <p>Her öğrencinin hangi konuda, kaç denemede hata yaptığı listelenir; konu durumları kendiliğinden güncellenir. Öğrenci listesinde son net ve bir önceki denemeye göre ▲ ▼ değişim görünür; 5 ya da daha çok net düşen öğrenci kırmızı yazılır.</p>
           <p class="adim-ayrinti">Okulda henüz işlenmemiş konular önceliklere girmez.</p>
         </div>
-        <figure class="kagit"><img src="gorseller/net_listesi.webp" width="1100" height="765" loading="lazy" alt="Sınıf net listesi PDF'i: öğrencilerin son net, önceki net, net değişimi ve puan değişimi"></figure>
+        <figure class="kagit adim-gorsel"><img src="gorseller/net_listesi.webp" width="1100" height="765" loading="lazy" alt="Sınıf net listesi PDF'i: öğrencilerin son net, önceki net, net değişimi ve puan değişimi"></figure>
       </li>
-      <li class="adim">
+      <li class="adim" data-adim="3">
         <div class="adim-metin">
           <span class="adim-no" aria-hidden="true">3</span>
           <h3>Haftalık programı hazırlayın</h3>
           <p>Program, öğrencinin öncelikli konularından o haftanın çalışma planını çıkarır: konu çalışması, kazanım soruları, deneme analizi ve günlük paragraf rutini. Tek öğrenciye ya da bütün sınıfa bir kerede hazırlanır; dilediğiniz görevi elle değiştirirsiniz.</p>
           <p class="adim-ayrinti">Öğrenci tamamladıkça işaretlenir; programa uyum oranı raporlara yansır.</p>
         </div>
-        <figure class="pencere"><img src="gorseller/program.webp" width="1600" height="826" loading="lazy" alt="Çalışma programı: günlere göre ders, konu, etkinlik, süre ve durum"></figure>
+        <figure class="pencere adim-gorsel"><img src="gorseller/program.webp" width="1600" height="826" loading="lazy" alt="Çalışma programı: günlere göre ders, konu, etkinlik, süre ve durum"></figure>
       </li>
-      <li class="adim">
+      <li class="adim" data-adim="4">
         <div class="adim-metin">
           <span class="adim-no" aria-hidden="true">4</span>
           <h3>Veliye gönderin</h3>
           <p>Gelişim raporu ve haftalık program, yazdırmak için A4 ve telefonda yakınlaştırmadan okunacak dar sayfa olarak hazırlanır. WhatsApp'ta velinin sohbeti hazır mesajla açılır; raporu ekleyip siz gönderirsiniz.</p>
           <p class="adim-ayrinti">Program hiçbir mesajı kendi başına göndermez; son kontrol her zaman sizdedir.</p>
         </div>
-        <figure class="kagit"><img src="gorseller/gelisim_raporu.webp" width="1100" height="1164" loading="lazy" alt="Öğrenci gelişim raporu: özet bilgiler, toplam net grafiği ve deneme sonuçları tablosu"></figure>
+        <figure class="kagit adim-gorsel"><img src="gorseller/gelisim_raporu.webp" width="1100" height="1164" loading="lazy" alt="Öğrenci gelişim raporu: özet bilgiler, toplam net grafiği ve deneme sonuçları tablosu"></figure>
       </li>
     </ol>
+      <div class="akis-sahne" aria-hidden="true">
+        <figure class="sahne-kare kare-pencere" data-adim="1"><img src="gorseller/konu.webp" width="1600" height="826" loading="lazy" decoding="async" alt="Konu takibi: her dersin konuları, toplam hata sayıları ve konu durumları"></figure>
+        <figure class="sahne-kare kare-kagit" data-adim="2"><img src="gorseller/net_listesi.webp" width="1100" height="765" loading="lazy" decoding="async" alt="Sınıf net listesi PDF'i: öğrencilerin son net, önceki net, net değişimi ve puan değişimi"></figure>
+        <figure class="sahne-kare kare-pencere" data-adim="3"><img src="gorseller/program.webp" width="1600" height="826" loading="lazy" decoding="async" alt="Çalışma programı: günlere göre ders, konu, etkinlik, süre ve durum"></figure>
+        <figure class="sahne-kare kare-kagit" data-adim="4"><img src="gorseller/gelisim_raporu.webp" width="1100" height="1164" loading="lazy" decoding="async" alt="Öğrenci gelişim raporu: özet bilgiler, toplam net grafiği ve deneme sonuçları tablosu"></figure>
+        <div class="akis-ilerleme"><i></i></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -296,6 +350,7 @@
     <span>Bu sitede çerez ve ziyaretçi takibi yoktur.</span>
   </div>
 </footer>
+<script src="site.js" defer></script>
 <script>
 (function () {
   var form = document.getElementById("iletisim-formu"), cerceve = document.getElementById("form-cevap"),
