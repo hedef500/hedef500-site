@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hedef500.tr/sitemap.xml
